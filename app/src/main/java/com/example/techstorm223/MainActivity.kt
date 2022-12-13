@@ -7,6 +7,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+
+import androidx.compose.foundation.lazy.LazyColumn
+
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -36,8 +39,10 @@ import kotlinx.coroutines.launch
 import androidx.compose.material.Text
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import com.example.techstorm223.R
 import androidx.compose.ui.graphics.Shape
-
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.GridCells
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,8 +86,8 @@ fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState){
                 Icon(Icons.Filled.Menu, "")
             }
         },
-        backgroundColor = Color.Green,
-        contentColor = Color.Black
+        backgroundColor = Color.Black,
+        contentColor = Color.White
     )
 
 }
@@ -202,37 +207,160 @@ fun DrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (Navigation
 
 @Composable
 fun HomeScreen(navController: NavHostController){
-    /*Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+
+    LazyColumn(
+        modifier = Modifier.padding(10.dp)
     ) {
+           item{
+            Box(
+                modifier = Modifier
 
-        Text(
-            text = "Home Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
 
-    }*/
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .wrapContentSize(Alignment.Center)) {
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .clip(RectangleShape)
-                .background(Color.Red)
-                .clickable {
-                    navController.navigate(NavigationItem.Profile.route)
-                }
-        )
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
 
-    }
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .background(Color.Red)
+                    .fillMaxWidth()
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+
+                    .clip(RectangleShape)
+                    .fillMaxWidth()
+                    .background(Color.Red)
+                    .clickable {
+                        navController.navigate(NavigationItem.Rovers_List.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_1
+                    ), contentDescription = "Null"
+                )
+            }
+        }
+        }
+
 }
+
 
 @Composable
 fun ProfileScreen(){
@@ -335,6 +463,80 @@ fun DevelopersScreen(){
 }
 
 @Composable
+fun RoversList(navController: NavHostController){
+
+    LazyColumn(
+        modifier = Modifier.padding(10.dp)
+    ) {
+        item{
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RectangleShape)
+                    .background(Color.Red)
+                    .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_2
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RectangleShape)
+                    .background(Color.Red)
+                    .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_2
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RectangleShape)
+                    .background(Color.Red)
+                    .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_2
+                    ), contentDescription = "Null"
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(RectangleShape)
+                    .background(Color.Red)
+                    .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                    }
+            ) {
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.image_2
+                    ), contentDescription = "Null"
+                )
+            }
+
+        }
+    }
+
+}
+
+
+@Composable
 fun Navigation(navController: NavHostController){
 
     NavHost(navController, startDestination = NavigationItem.Home.route){
@@ -345,6 +547,10 @@ fun Navigation(navController: NavHostController){
 
         composable(NavigationItem.Profile.route){
             ProfileScreen()
+        }
+
+        composable(NavigationItem.Rovers_List.route){
+            RoversList(navController)
         }
 
         composable(NavigationItem.Settings.route){
