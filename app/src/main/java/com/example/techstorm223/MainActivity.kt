@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -315,54 +316,90 @@ fun ContactScreen(){
 }
 
 @Composable
-fun DevelopersScreen(){
+fun DevelopersScreen() {
+
     Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(20.dp)
     ) {
+        Card(
 
-        Text(
-            text = "Developer Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
+        ) {
+            val imageModifier = Modifier
+                .size(250.dp)
+
+            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null, modifier =imageModifier)
+            Column(modifier = Modifier.padding(5.dp)) {
+                Text("Maaitrayo Das", fontWeight = FontWeight.W700)
+                Text("+0 12345678")
+                Text("XYZ city", fontWeight = FontWeight.W300)
+
+            }
+        }
+
+
+        Card(
+
+        ) {
+            val imageModifier = Modifier
+                .size(250.dp)
+            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
+            Column(modifier = Modifier.padding(5.dp)) {
+                Text("Dipnarayan Sen", fontWeight = FontWeight.W700)
+                Text("+0 12345678")
+                Text("XYZ city", fontWeight = FontWeight.W300)
+
+            }
+        }
+        Card(
+
+        ) {
+            val imageModifier = Modifier
+                .size(250.dp)
+            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
+            Column(modifier = Modifier.padding(5.dp)) {
+                Text("Anushka Mukherjee", fontWeight = FontWeight.W700)
+                Text("+0 12345678")
+                Text("XYZ city", fontWeight = FontWeight.W300)
+
+            }
+        }
 
     }
-}
-
-@Composable
-fun Navigation(navController: NavHostController){
-
-    NavHost(navController, startDestination = NavigationItem.Home.route){
-
-        composable(NavigationItem.Home.route){
-            HomeScreen(navController)
-        }
-
-        composable(NavigationItem.Profile.route){
-            ProfileScreen()
-        }
-
-        composable(NavigationItem.Settings.route){
-            SettingsScreen()
-        }
-
-        composable(NavigationItem.Share.route){
-            ShareScreen()
-        }
-
-        composable(NavigationItem.Contact.route){
-            ContactScreen()
-        }
-
-        composable(NavigationItem.Developers.route){
-                    DevelopersScreen()
-                }
-
     }
 
-}
+    @Composable
+    fun Navigation(navController: NavHostController) {
+
+        NavHost(navController, startDestination = NavigationItem.Home.route) {
+
+            composable(NavigationItem.Home.route) {
+                HomeScreen(navController)
+            }
+
+            composable(NavigationItem.Profile.route) {
+                ProfileScreen()
+            }
+
+            composable(NavigationItem.Settings.route) {
+                SettingsScreen()
+            }
+
+            composable(NavigationItem.Share.route) {
+                ShareScreen()
+            }
+
+            composable(NavigationItem.Contact.route) {
+                ContactScreen()
+            }
+
+            composable(NavigationItem.Developers.route) {
+                DevelopersScreen()
+            }
+
+        }
+
+    }
