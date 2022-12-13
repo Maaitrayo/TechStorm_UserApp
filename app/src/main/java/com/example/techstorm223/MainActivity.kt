@@ -201,7 +201,7 @@ fun DrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (Navigation
 }
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavHostController){
     /*Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -218,10 +218,19 @@ fun HomeScreen(){
         )
 
     }*/
-    Column(modifier = Modifier.fillMaxWidth().wrapContentSize(Alignment.Center)) {
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .wrapContentSize(Alignment.Center)) {
         Box(
-            modifier = Modifier.size(100.dp).clip(RectangleShape).background(Color.Red)
+            modifier = Modifier
+                .size(100.dp)
+                .clip(RectangleShape)
+                .background(Color.Red)
+                .clickable {
+                    navController.navigate(NavigationItem.Profile.route)
+                }
         )
+
     }
 }
 
@@ -331,7 +340,7 @@ fun Navigation(navController: NavHostController){
     NavHost(navController, startDestination = NavigationItem.Home.route){
 
         composable(NavigationItem.Home.route){
-            HomeScreen()
+            HomeScreen(navController)
         }
 
         composable(NavigationItem.Profile.route){
