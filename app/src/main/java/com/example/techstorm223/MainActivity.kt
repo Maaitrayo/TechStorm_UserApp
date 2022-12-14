@@ -97,7 +97,8 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
 
     val items = listOf(
         NavigationItem.Home,
-        NavigationItem.Profile,
+
+        NavigationItem.Schedule,
         NavigationItem.Settings,
         NavigationItem.Share,
         NavigationItem.Contact,
@@ -362,25 +363,7 @@ fun HomeScreen(navController: NavHostController){
 }
 
 
-@Composable
-fun ProfileScreen(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
 
-        Text(
-            text = "Profile Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-
-    }
-}
 
 @Composable
 fun SettingsScreen(){
@@ -413,6 +396,25 @@ fun ShareScreen(){
 
         Text(
             text = "Share Screen",
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            fontSize = 30.sp,
+            textAlign = TextAlign.Center
+        )
+
+    }
+}
+@Composable
+fun ScheduleScreen(){
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            text = "Schedule Screen",
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             fontSize = 30.sp,
@@ -544,10 +546,10 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Home.route){
             HomeScreen(navController)
         }
-
-        composable(NavigationItem.Profile.route){
-            ProfileScreen()
+        composable(NavigationItem.Schedule.route){
+            ScheduleScreen()
         }
+
 
         composable(NavigationItem.Rovers_List.route){
             RoversList(navController)
