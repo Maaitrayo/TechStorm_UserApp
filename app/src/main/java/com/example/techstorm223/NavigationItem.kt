@@ -9,4 +9,7 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
     object Contact : NavigationItem("contact", R.drawable.ic_contact, "Contact")
     object Developers : NavigationItem("developers", R.drawable.ic_new, "Developers")
 
+    object Rovers_List : NavigationItem("Rovers List", R.drawable.ic_new, "Rovers_List")
+    object Rovers_List2 : NavigationItem("Rovers List2", R.drawable.ic_new, "Rovers_List2")
+
 }
