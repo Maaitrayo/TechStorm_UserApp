@@ -45,6 +45,7 @@ import com.example.techstorm223.R
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.GridCells
+import androidx.navigation.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -460,7 +461,11 @@ fun DevelopersScreen() {
             val imageModifier = Modifier
                 .size(250.dp)
 
-            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null, modifier =imageModifier)
+            Image(
+                painter = painterResource(id = R.drawable.image_1),
+                contentDescription = null,
+                modifier = imageModifier
+            )
             Column(modifier = Modifier.padding(5.dp)) {
                 Text("Maaitrayo Das", fontWeight = FontWeight.W700)
                 Text("+0 12345678")
@@ -469,92 +474,16 @@ fun DevelopersScreen() {
 
             }
         }
-
-@Composable
-fun RoversList(navController: NavHostController){
-
-    LazyColumn(
-        modifier = Modifier.padding(10.dp)
-    ) {
-        item{
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-
-        }
-    }
-
-}
-
-
-@Composable
-fun Navigation(navController: NavHostController){
-
-
-
         Card(
 
         ) {
             val imageModifier = Modifier
                 .size(250.dp)
-            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
+            Image(
+                painter = painterResource(id = R.drawable.image_1),
+                contentDescription = null,
+                modifier = imageModifier
+            )
             Column(modifier = Modifier.padding(5.dp)) {
                 Text("Dipnarayan Sen", fontWeight = FontWeight.W700)
                 Text("+0 12345678")
@@ -562,21 +491,18 @@ fun Navigation(navController: NavHostController){
 
 
             }
-
-        composable(NavigationItem.Rovers_List.route){
-            RoversList(navController)
         }
 
-        composable(NavigationItem.Settings.route){
-            SettingsScreen()
-
-        }
         Card(
 
         ) {
             val imageModifier = Modifier
                 .size(250.dp)
-            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
+            Image(
+                painter = painterResource(id = R.drawable.image_1),
+                contentDescription = null,
+                modifier = imageModifier
+            )
             Column(modifier = Modifier.padding(5.dp)) {
                 Text("Anushka Mukherjee", fontWeight = FontWeight.W700)
                 Text("+0 12345678")
@@ -585,8 +511,83 @@ fun Navigation(navController: NavHostController){
             }
         }
 
+
     }
+}
+
+    @Composable
+    fun RoversList() {
+
+        LazyColumn(
+            modifier = Modifier.padding(10.dp)
+        ) {
+            item {
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(RectangleShape)
+                        .background(Color.Red)
+                        .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                        }
+                ) {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.image_2
+                        ), contentDescription = "Null"
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(RectangleShape)
+                        .background(Color.Red)
+                        .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                        }
+                ) {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.image_2
+                        ), contentDescription = "Null"
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(RectangleShape)
+                        .background(Color.Red)
+                        .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                        }
+                ) {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.image_2
+                        ), contentDescription = "Null"
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(100.dp)
+                        .clip(RectangleShape)
+                        .background(Color.Red)
+                        .clickable {
+//                        navController.navigate(NavigationItem.Rovers_List2.route)
+                        }
+                ) {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.image_2
+                        ), contentDescription = "Null"
+                    )
+                }
+
+            }
+        }
     }
+
+
 
     @Composable
     fun Navigation(navController: NavHostController) {
@@ -615,6 +616,9 @@ fun Navigation(navController: NavHostController){
 
             composable(NavigationItem.Developers.route) {
                 DevelopersScreen()
+            }
+            composable(NavigationItem.Rovers_List.route) {
+                RoversList()
             }
 
         }
