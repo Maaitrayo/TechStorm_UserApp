@@ -12,9 +12,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
-
 @Composable
-fun ResultsScreen(){
+fun TeamScreen(){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -23,9 +22,9 @@ fun ResultsScreen(){
     ) {
 
         Text(
-            text = "Results Screen",
+            text = "Team Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Gray,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )

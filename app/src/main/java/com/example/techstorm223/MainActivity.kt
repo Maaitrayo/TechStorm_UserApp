@@ -50,6 +50,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreen()
+
         }
     }
 }
@@ -60,9 +61,10 @@ fun MainScreen(){
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
-
+    AnimatedSplashScreen(navController = navController)
     Scaffold(
         scaffoldState = scaffoldState,
+        backgroundColor = Color.Black,
         topBar = { TopBar(scope = scope, scaffoldState = scaffoldState) },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
@@ -211,25 +213,6 @@ fun DrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (Navigation
 
 
 @Composable
-fun ShareScreen(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text(
-            text = "Share Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-
-    }
-}
-@Composable
 fun ScheduleScreen(){
     Column(
         modifier = Modifier
@@ -241,7 +224,7 @@ fun ScheduleScreen(){
         Text(
             text = "Schedule Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
@@ -258,9 +241,9 @@ fun AboutusScreen(){
     ) {
 
         Text(
-            text = "Schedule Screen",
+            text = "About Us Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.Gray,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
@@ -280,32 +263,14 @@ fun ContactScreen(){
         Text(
             text = "Contact Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
 
     }
 }
-@Composable
-fun TeamScreen(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
 
-        Text(
-            text = "Team Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-
-    }
-}
 
 data  class GalleryData(
     val imgUri:Int
@@ -334,7 +299,6 @@ fun PhotoGallery(){
         GalleryData(R.drawable.img_gal_18),
         GalleryData(R.drawable.img_gal_19),
         GalleryData(R.drawable.img_gal_20),
-
 
         )
     LazyVerticalGrid(cells = GridCells.Fixed(2)){
@@ -371,8 +335,13 @@ fun getJsonDataFromAsset(context: Context, data: String):String {
 @Composable
 fun Navigation(navController: NavHostController){
 
-    NavHost(navController, startDestination = NavigationItem.Home.route){
-
+    NavHost(navController, startDestination = NavigationItem.AnimatedSplashScreen.route){
+        composable(NavigationItem.AnimatedSplashScreen.route){
+            AnimatedSplashScreen(navController)
+        }
+        composable(NavigationItem.MainScreen.route){
+            MainScreen()
+        }
         composable(NavigationItem.Home.route){
             HomeScreen(navController)
         }
@@ -386,28 +355,28 @@ fun Navigation(navController: NavHostController){
 
 
         //Rovers List Section
-        composable(NavigationItem.Rovers_List.route){
+        composable(NavigationHomeItems.Rovers_List.route){
             RoversList(navController)
         }
-        composable(NavigationItem.RoCombat.route){
+        composable(RoversNavigation.RoCombat.route){
             RoCombat(navController)
         }
-        composable(NavigationItem.RoNavigator.route){
+        composable(RoversNavigation.RoNavigator.route){
             RoNavigator(navController)
         }
-        composable(NavigationItem.RoPicker.route){
+        composable(RoversNavigation.RoPicker.route){
             RoPicker(navController)
         }
-        composable(NavigationItem.RoSoccer.route){
+        composable(RoversNavigation.RoSoccer.route){
             RoSoccer(navController)
         }
-        composable(NavigationItem.RoTerrance.route){
+        composable(RoversNavigation.RoTerrance.route){
             RoTerrance(navController)
         }
-        composable(NavigationItem.RoWings.route){
+        composable(RoversNavigation.RoWings.route){
             RoWings(navController)
         }
-        composable(NavigationItem.RoCarrom.route){
+        composable(RoversNavigation.RoCarrom.route){
             RoCarrom(navController)
         }
 
@@ -415,39 +384,39 @@ fun Navigation(navController: NavHostController){
 
 
         //Brain Teasers Section
-        composable(NavigationItem.BrainTeasersList.route){
+        composable(NavigationHomeItems.BrainTeasersList.route){
             BrainTeasersList(navController)
         }
 
-        composable(NavigationItem.Appmania.route){
+        composable(BrainTeasersNavigation.Appmania.route){
             Appmania(navController)
         }
-        composable(NavigationItem.Fantac.route){
+        composable(BrainTeasersNavigation.Fantac.route){
             Fantac(navController)
         }
-        composable(NavigationItem.Omegatrix.route){
+        composable(BrainTeasersNavigation.Omegatrix.route){
             Omegatrix(navController)
         }
-        composable(NavigationItem.Technomania.route){
+        composable(BrainTeasersNavigation.Technomania.route){
             Technomania(navController)
         }
 
 
         //GamesSection
-        composable(NavigationItem.GamesList.route){
+        composable(NavigationHomeItems.GamesList.route){
             GamesList(navController)
         }
 
-        composable(NavigationItem.NeedForSpeed.route){
+        composable(GamesNavigattion.NeedForSpeed.route){
             NeedForSpeed(navController)
         }
-        composable(NavigationItem.Knet.route){
+        composable(GamesNavigattion.Knet.route){
             Knet(navController)
         }
-        composable(NavigationItem.Coc.route){
+        composable(GamesNavigattion.Coc.route){
             Coc(navController)
         }
-        composable(NavigationItem.Fifa.route){
+        composable(GamesNavigattion.Fifa.route){
             Fifa(navController)
         }
 
@@ -463,16 +432,16 @@ fun Navigation(navController: NavHostController){
 
 
         //Creative
-        composable(NavigationItem.CreativeList.route){
+        composable(NavigationHomeItems.CreativeList.route){
             CreativeList(navController)
         }
-        composable(NavigationItem.PassionWithReels.route){
+        composable(NavigationHomeItems.PassionWithReels.route){
             PassionWithReels(navController)
         }
-        composable(NavigationItem.MmLive.route){
+        composable(NavigationHomeItems.MmLive.route){
             MmLive(navController)
         }
-        composable(NavigationItem.Exposcience.route){
+        composable(NavigationHomeItems.Exposcience.route){
             Exposcience(navController)
         }
 

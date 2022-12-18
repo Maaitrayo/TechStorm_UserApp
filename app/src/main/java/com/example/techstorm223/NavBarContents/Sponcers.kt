@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.techstorm223.R
@@ -40,7 +41,8 @@ fun SponcersScreen(){
 @Composable
 fun SponcerItem(data : SponcersData){
     Card(
-        modifier= Modifier.padding(0.dp,0.dp,0.dp,0.dp)
+        modifier= Modifier.padding(0.dp,0.dp,0.dp,0.dp),
+        backgroundColor = Color.Black
     ) {
         val imageModifier = Modifier
             .size(250.dp)

@@ -2,6 +2,7 @@ package com.example.techstorm223.NavBarContents
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -10,6 +11,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -48,71 +50,15 @@ fun DevelopersScreen() {
 
         items(DevData) {data->
             DataItem(data)
-            /*Card(
 
-            ) {
-                val imageModifier = Modifier
-                    .size(250.dp)
-
-                Image(
-                    painter = painterResource(id = R.drawable.image_1),
-                    contentDescription = null,
-                    modifier = imageModifier
-                )
-                Column(modifier = Modifier.padding(5.dp)) {
-                    Text("Maaitrayo Das", fontWeight = FontWeight.W700)
-                    Text("+0 12345678")
-                    Text("XYZ city", fontWeight = FontWeight.W300)
-
-                }
-            }
-
-
-Card(
-
-) {
- val imageModifier = Modifier
-     .size(250.dp)
- Image(
-     painter = painterResource(id = R.drawable.image_1),
-     contentDescription = null,
-     modifier = imageModifier
- )
- Column(modifier = Modifier.padding(5.dp)) {
-     Text("Dipnarayan Sen", fontWeight = FontWeight.W700)
-     Text("+0 12345678")
-     Text("XYZ city", fontWeight = FontWeight.W300)
-
- }
-}
-
-
-
-             Card(
-
-             ) {
-                 val imageModifier = Modifier
-                     .size(250.dp)
-                 Image(
-                     painter = painterResource(id = R.drawable.image_1),
-                     contentDescription = null,
-                     modifier = imageModifier
-                 )
-                 Column(modifier = Modifier.padding(5.dp)) {
-                     Text("Anushka Mukherjee", fontWeight = FontWeight.W700)
-                     Text("+0 12345678")
-                     Text("XYZ city", fontWeight = FontWeight.W300)
-
-                 }
-             }
-*/
         }
     }
 }
 @Composable
 fun DataItem(data : EventDomainData){
     Card(
-        modifier= Modifier.padding(5.dp,5.dp,5.dp,5.dp)
+        modifier= Modifier.padding(5.dp,5.dp,5.dp,5.dp).background(Color.Black),
+        backgroundColor = Color.Black
     ) {
         val imageModifier = Modifier
             .size(250.dp)
@@ -121,16 +67,17 @@ fun DataItem(data : EventDomainData){
             painter = painterResource(id = R.drawable.image_1),
             contentDescription = null,
             modifier = imageModifier
+
         )
-        Column(modifier = Modifier.padding(5.dp)) {
-            Box(modifier = Modifier) {
-                Text("${data.title}", fontWeight = FontWeight.W300)
+        Column(modifier = Modifier.padding(5.dp).background(Color.Black)) {
+            Box(modifier = Modifier.background(Color.Black)) {
+                Text("${data.title}", fontWeight = FontWeight.W300, color = Color.White)
                 //  Text("${data.desc}")
 
             }
         }
     }
-    Spacer(modifier = Modifier.size(5.dp))
+//    Spacer(modifier = Modifier.size(5.dp))
 
 }
 

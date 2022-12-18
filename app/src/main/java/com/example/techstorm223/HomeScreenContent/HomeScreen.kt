@@ -20,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.techstorm223.NavigationHomeItems
 import com.example.techstorm223.NavigationItem
 import com.example.techstorm223.R
 
@@ -33,11 +34,11 @@ data class homedataobject(
 @Composable
 fun HomeScreen(navController: NavHostController) {
     val homedata = listOf(
-        homedataobject(R.drawable.image_1, NavigationItem.BrainTeasersList.route, "Brain Teasers"),
-        homedataobject(R.drawable.image_2, NavigationItem.IdeaPresentation.route, "Idea Presentation"),
-        homedataobject(R.drawable.image_3, NavigationItem.Rovers_List.route, "Rovers"),
-        homedataobject(R.drawable.image_4, NavigationItem.GamesList.route, "Games"),
-        homedataobject(R.drawable.image_5, NavigationItem.CreativeList.route, "Creative"),
+        homedataobject(R.drawable.image_1, NavigationHomeItems.BrainTeasersList.route, "Brain Teasers"),
+        homedataobject(R.drawable.image_2, NavigationHomeItems.IdeaPresentation.route, "Idea Presentation"),
+        homedataobject(R.drawable.image_3, NavigationHomeItems.Rovers_List.route, "Rovers"),
+        homedataobject(R.drawable.image_4, NavigationHomeItems.GamesList.route, "Games"),
+        homedataobject(R.drawable.image_5, NavigationHomeItems.CreativeList.route, "Creative"),
     )
     LazyVerticalGrid(cells = GridCells.Fixed(1)) {
 
@@ -51,14 +52,15 @@ fun HomeScreen(navController: NavHostController) {
 @Composable
 fun HomeItem(data : homedataobject,navController: NavHostController) {
     Card(
-        modifier = Modifier.padding(10.dp,10.dp,10.dp,10.dp).fillMaxSize(0.7f)
+        modifier = Modifier.padding(10.dp,10.dp,10.dp,10.dp).fillMaxSize(0.7f).background(Color.Black).clip(RoundedCornerShape(30.dp)),
+        backgroundColor = Color.Black
     ) {
         Box(
             modifier = Modifier
 
                 .clip(RoundedCornerShape(30.dp))
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(Color.Black)
                 .clickable {
                     navController.navigate(data.route)
                 }
