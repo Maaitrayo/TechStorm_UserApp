@@ -31,7 +31,6 @@ fun SponcersScreen(){
         SponcersData(R.drawable.image_5),
     )
     LazyVerticalGrid(cells = GridCells.Fixed(2)){
-
         items(sponcersvals) {data->
             SponcerItem(data)
 
@@ -41,7 +40,7 @@ fun SponcersScreen(){
 @Composable
 fun SponcerItem(data : SponcersData){
     Card(
-        modifier= Modifier.padding(0.dp,0.dp,0.dp,0.dp),
+        modifier= Modifier.padding(5.dp,0.dp,0.dp,0.dp),
         backgroundColor = Color.Black
     ) {
         val imageModifier = Modifier

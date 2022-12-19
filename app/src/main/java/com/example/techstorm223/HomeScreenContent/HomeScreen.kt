@@ -40,11 +40,10 @@ fun HomeScreen(navController: NavHostController) {
         homedataobject(R.drawable.image_4, NavigationHomeItems.GamesList.route, "Games"),
         homedataobject(R.drawable.image_5, NavigationHomeItems.CreativeList.route, "Creative"),
     )
-    LazyVerticalGrid(cells = GridCells.Fixed(1)) {
 
+    LazyVerticalGrid(cells = GridCells.Fixed(1)) {
         items(homedata) { data ->
             HomeItem(data,navController)
-
         }
     }
 }
@@ -52,7 +51,10 @@ fun HomeScreen(navController: NavHostController) {
 @Composable
 fun HomeItem(data : homedataobject,navController: NavHostController) {
     Card(
-        modifier = Modifier.padding(10.dp,10.dp,10.dp,10.dp).fillMaxSize(0.7f).background(Color.Black).clip(RoundedCornerShape(30.dp)),
+        modifier = Modifier.padding(10.dp,10.dp,10.dp,10.dp)
+            .fillMaxSize(0.7f)
+            .background(Color.Black)
+            .clip(RoundedCornerShape(30.dp)),
         backgroundColor = Color.Black
     ) {
         Box(

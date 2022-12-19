@@ -278,6 +278,42 @@ data  class GalleryData(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
+fun SponcersScreen(){
+    val sponcersvals = listOf(
+        SponcersData(R.drawable.image_1),
+        SponcersData(R.drawable.image_2),
+        SponcersData(R.drawable.image_3),
+        SponcersData(R.drawable.image_4),
+        SponcersData(R.drawable.image_5),
+    )
+    LazyVerticalGrid(cells = GridCells.Fixed(2)){
+        items(sponcersvals) {data->
+            SponcerItem(data)
+
+        }
+    }
+}
+@Composable
+fun SponcerItem(data : GalleryData){
+    Card(
+        modifier= Modifier.padding(5.dp,0.dp,0.dp,0.dp),
+        backgroundColor = Color.Black
+    ) {
+        val imageModifier = Modifier
+            .size(250.dp)
+
+        Image(
+            painter = painterResource(id = data.imgUri),
+            contentDescription = null,
+            modifier = imageModifier
+        )
+    }
+    Spacer(modifier = Modifier.size(5.dp))
+
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
 fun PhotoGallery(){
     val galerry = listOf(
         GalleryData(R.drawable.img_gal_1),
@@ -312,7 +348,8 @@ fun PhotoGallery(){
 @Composable
 fun PhotoItem(data : GalleryData){
     Card(
-        modifier=Modifier.padding(2.dp,2.dp,2.dp,2.dp)
+        modifier=Modifier.padding(2.dp,2.dp,2.dp,2.dp),
+        backgroundColor = Color.Black
     ) {
         val imageModifier = Modifier
             .size(250.dp)
