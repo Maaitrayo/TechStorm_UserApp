@@ -1,16 +1,20 @@
 package com.example.techstorm223
+import com.example.techstorm223.NavBarContents.*
+import com.example.techstorm223.HomeScreenContent.*
+import com.example.techstorm223.ResultScreenContents.*
+
+import android.content.Context
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 
-import androidx.compose.foundation.lazy.LazyColumn
 
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -37,19 +41,18 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import androidx.compose.material.Text
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
-import com.example.techstorm223.R
-import androidx.compose.ui.graphics.Shape
+
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.GridCells
-import androidx.navigation.Navigation
+import androidx.compose.foundation.lazy.items
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreen()
+
         }
     }
 }
@@ -60,9 +63,10 @@ fun MainScreen(){
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
-
+    AnimatedSplashScreen(navController = navController)
     Scaffold(
         scaffoldState = scaffoldState,
+        backgroundColor = Color.Black,
         topBar = { TopBar(scope = scope, scaffoldState = scaffoldState) },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
@@ -99,12 +103,13 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
     val items = listOf(
         NavigationItem.Home,
         NavigationItem.Schedule,
-        NavigationItem.Results,
+        NavigationItem.ResultScreen,
         NavigationItem.Sponcers,
         NavigationItem.Team,
         NavigationItem.Developers,
-        NavigationItem.Aboutus
-
+        NavigationItem.Aboutus,
+        NavigationItem.PhotoGallery,
+        NavigationItem.Announcement
     )
 
     Column(
@@ -119,7 +124,7 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
                 .background(Color.Black),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
-        ){
+        ) {
 
             Image(
                 painter = painterResource(id = R.drawable.logo),
@@ -143,9 +148,9 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
         items.forEach { items ->
             DrawerItem(item = items, selected = currentRoute == items.route, onItemClick = {
 
-                navController.navigate(items.route){
+                navController.navigate(items.route) {
                     navController.graph.startDestinationRoute?.let { route ->
-                        popUpTo(route){
+                        popUpTo(route) {
                             saveState = true
                         }
                     }
@@ -173,6 +178,7 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
         )
 
     }
+
 }
 
 @Composable
@@ -208,202 +214,6 @@ fun DrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (Navigation
 
 }
 
-@Composable
-fun HomeScreen(navController: NavHostController){
-
-    LazyColumn(
-        modifier = Modifier.padding(10.dp)
-    ) {
-        item{
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .fillMaxWidth()
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-
-                    .clip(RectangleShape)
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .clickable {
-                        navController.navigate(NavigationItem.Rovers_List.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_1
-                    ), contentDescription = "Null"
-                )
-            }
-        }
-    }
-
-}
-
-
-
-
-
-
-@Composable
-fun ResultsScreen(){
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text(
-            text = "Settings Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-
-    }
-}
-
-@Composable
-fun SponcersScreen(){
-
-        Text(
-
-            text = "Sponcer Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-
-    }
-}
 
 @Composable
 fun ScheduleScreen(){
@@ -417,14 +227,13 @@ fun ScheduleScreen(){
         Text(
             text = "Schedule Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
 
     }
 }
-
 @Composable
 fun AboutusScreen(){
     Column(
@@ -435,9 +244,9 @@ fun AboutusScreen(){
     ) {
 
         Text(
-            text = "Schedule Screen",
+            text = "About Us Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.Gray,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
@@ -457,15 +266,14 @@ fun ContactScreen(){
         Text(
             text = "Contact Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
 
     }
-}
-@Composable
-fun TeamScreen(){
+}@Composable
+fun AnnouncementScreen(){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -474,9 +282,9 @@ fun TeamScreen(){
     ) {
 
         Text(
-            text = "Team Screen",
+            text = "Announcement Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )
@@ -484,137 +292,100 @@ fun TeamScreen(){
     }
 }
 
+
+data  class GalleryData(
+    val imgUri:Int
+)
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun DevelopersScreen() {
-
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .padding(20.dp)
-    ) {
-        Card(
-
-        ) {
-            val imageModifier = Modifier
-                .size(250.dp)
-
-            Image(
-                painter = painterResource(id = R.drawable.image_1),
-                contentDescription = null,
-                modifier = imageModifier
-            )
-            Column(modifier = Modifier.padding(5.dp)) {
-                Text("Maaitrayo Das", fontWeight = FontWeight.W700)
-                Text("+0 12345678")
-                Text("XYZ city", fontWeight = FontWeight.W300)
-
-            }
-        }
-
-
-        Card(
-
-        ) {
-            val imageModifier = Modifier
-                .size(250.dp)
-            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
-            Column(modifier = Modifier.padding(5.dp)) {
-                Text("Dipnarayan Sen", fontWeight = FontWeight.W700)
-                Text("+0 12345678")
-                Text("XYZ city", fontWeight = FontWeight.W300)
-
-            }
-        }
-        Card(
-
-        ) {
-            val imageModifier = Modifier
-                .size(250.dp)
-            Image(painter = painterResource(id = R.drawable.image_1), contentDescription = null,modifier =imageModifier)
-            Column(modifier = Modifier.padding(5.dp)) {
-                Text("Anushka Mukherjee", fontWeight = FontWeight.W700)
-                Text("+0 12345678")
-                Text("XYZ city", fontWeight = FontWeight.W300)
-
-            }
-            }
-
-        }
-
-}
-
-@Composable
-fun RoversList(navController: NavHostController){
-
-    LazyColumn(
-        modifier = Modifier.padding(10.dp)
-    ) {
-        item{
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RectangleShape)
-                    .background(Color.Red)
-                    .clickable {
-//                        navController.navigate(NavigationItem.Rovers_List2.route)
-                    }
-            ) {
-                Image(
-                    painter = painterResource(
-                        id = R.drawable.image_2
-                    ), contentDescription = "Null"
-                )
-            }
+fun SponcersScreen(){
+    val sponcersvals = listOf(
+        SponcersData(R.drawable.image_1),
+        SponcersData(R.drawable.image_2),
+        SponcersData(R.drawable.image_3),
+        SponcersData(R.drawable.image_4),
+        SponcersData(R.drawable.image_5),
+    )
+    LazyVerticalGrid(cells = GridCells.Fixed(2)){
+        items(sponcersvals) {data->
+            SponcerItem(data)
 
         }
     }
+}
+@Composable
+fun SponcerItem(data : GalleryData){
+    Card(
+        modifier= Modifier.padding(5.dp,0.dp,0.dp,0.dp),
+        backgroundColor = Color.Black
+    ) {
+        val imageModifier = Modifier
+            .size(250.dp)
+
+        Image(
+            painter = painterResource(id = data.imgUri),
+            contentDescription = null,
+            modifier = imageModifier
+        )
+    }
+    Spacer(modifier = Modifier.size(5.dp))
+
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun PhotoGallery(){
+    val galerry = listOf(
+        GalleryData(R.drawable.img_gal_1),
+        GalleryData(R.drawable.img_gal_2),
+        GalleryData(R.drawable.img_gal_3),
+        GalleryData(R.drawable.img_gal_4),
+        GalleryData(R.drawable.img_gal_5),
+        GalleryData(R.drawable.img_gal_6),
+        GalleryData(R.drawable.img_gal_7),
+        GalleryData(R.drawable.img_gal_8),
+        GalleryData(R.drawable.img_gal_9),
+        GalleryData(R.drawable.img_gal_10),
+        GalleryData(R.drawable.img_gal_11),
+        GalleryData(R.drawable.img_gal_12),
+        GalleryData(R.drawable.img_gal_13),
+        GalleryData(R.drawable.img_gal_14),
+        GalleryData(R.drawable.img_gal_16),
+        GalleryData(R.drawable.img_gal_17),
+        GalleryData(R.drawable.img_gal_18),
+        GalleryData(R.drawable.img_gal_19),
+        GalleryData(R.drawable.img_gal_20),
+
+        )
+    LazyVerticalGrid(cells = GridCells.Fixed(2)){
+
+        items(galerry) {data->
+            PhotoItem(data)
+
+        }
+    }
+}
+@Composable
+fun PhotoItem(data : GalleryData){
+    Card(
+        modifier=Modifier.padding(2.dp,2.dp,2.dp,2.dp),
+        backgroundColor = Color.Black
+    ) {
+        val imageModifier = Modifier
+            .size(250.dp)
+
+        Image(
+            painter = painterResource(id = data.imgUri),
+            contentDescription = null,
+            modifier = imageModifier
+        )
+    }
+
+}
+
+fun getJsonDataFromAsset(context: Context, data: String):String {
+    return context.assets.open(data).bufferedReader().use { it.readText() }
 
 }
 
@@ -622,18 +393,117 @@ fun RoversList(navController: NavHostController){
 @Composable
 fun Navigation(navController: NavHostController){
 
-    NavHost(navController, startDestination = NavigationItem.Home.route){
-
+    NavHost(navController, startDestination = NavigationItem.AnimatedSplashScreen.route){
+        composable(NavigationItem.AnimatedSplashScreen.route){
+            AnimatedSplashScreen(navController)
+        }
+        composable(NavigationItem.MainScreen.route){
+            MainScreen()
+        }
         composable(NavigationItem.Home.route){
             HomeScreen(navController)
         }
         composable(NavigationItem.Schedule.route){
             ScheduleScreen()
         }
+        composable(NavigationItem.PhotoGallery.route){
+            PhotoGallery()
+        }
 
-        composable(NavigationItem.Rovers_List.route){
+
+
+        //Rovers List Section
+        composable(NavigationHomeItems.Rovers_List.route){
             RoversList(navController)
         }
+        composable(RoversNavigation.RoCombat.route){
+            RoCombat(navController)
+        }
+        composable(RoversNavigation.RoNavigator.route){
+            RoNavigator(navController)
+        }
+        composable(RoversNavigation.RoPicker.route){
+            RoPicker(navController)
+        }
+        composable(RoversNavigation.RoSoccer.route){
+            RoSoccer(navController)
+        }
+        composable(RoversNavigation.RoTerrance.route){
+            RoTerrance(navController)
+        }
+        composable(RoversNavigation.RoWings.route){
+            RoWings(navController)
+        }
+        composable(RoversNavigation.RoCarrom.route){
+            RoCarrom(navController)
+        }
+
+
+
+
+        //Brain Teasers Section
+        composable(NavigationHomeItems.BrainTeasersList.route){
+            BrainTeasersList(navController)
+        }
+
+        composable(BrainTeasersNavigation.Appmania.route){
+            Appmania(navController)
+        }
+        composable(BrainTeasersNavigation.Fantac.route){
+            Fantac(navController)
+        }
+        composable(BrainTeasersNavigation.Omegatrix.route){
+            Omegatrix(navController)
+        }
+        composable(BrainTeasersNavigation.Technomania.route){
+            Technomania(navController)
+        }
+
+
+        //GamesSection
+        composable(NavigationHomeItems.GamesList.route){
+            GamesList(navController)
+        }
+
+        composable(GamesNavigattion.NeedForSpeed.route){
+            NeedForSpeed(navController)
+        }
+        composable(GamesNavigattion.Knet.route){
+            Knet(navController)
+        }
+        composable(GamesNavigattion.Coc.route){
+            Coc(navController)
+        }
+        composable(GamesNavigattion.Fifa.route){
+            Fifa(navController)
+        }
+
+
+
+
+
+        //Idea Presentation Section
+        composable(NavigationItem.IdeaPresentation.route){
+            IdeaPresentation(navController)
+        }
+
+
+
+        //Creative
+        composable(NavigationHomeItems.CreativeList.route){
+            CreativeList(navController)
+        }
+        composable(NavigationHomeItems.PassionWithReels.route){
+            PassionWithReels(navController)
+        }
+        composable(NavigationHomeItems.MmLive.route){
+            MmLive(navController)
+        }
+        composable(NavigationHomeItems.Exposcience.route){
+            Exposcience(navController)
+        }
+
+
 
         composable(NavigationItem.Share.route){
             ShareScreen()
@@ -641,14 +511,19 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Team.route){
             TeamScreen()
         }
+
         composable(NavigationItem.Contact.route){
             ContactScreen()
         }
         composable(NavigationItem.Sponcers.route){
             SponcersScreen()
         }
-        composable(NavigationItem.Results.route){
-            ResultsScreen()
+        //Result
+        composable(NavigationItem.ResultScreen.route){
+            ResultScreen(navController)
+        }
+        composable(NavigationItem.Announcement.route){
+            AnnouncementScreen()
         }
 
         composable(NavigationItem.Developers.route){
@@ -657,7 +532,25 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Aboutus.route){
             AboutusScreen()
         }
+        composable(ResultList.BrainTeasersResult.route){
+            BrainTeasersResult()
+        }
 
+        composable(ResultList.IdeaPresentationResult.route){
+            IdeaPresentationResult()
+        }
 
+        composable(ResultList.GamesResult.route){
+            GamesResult()
+        }
+
+        composable(ResultList.CreativeResult.route){
+            CreativeResult()
+        }
+
+        composable(ResultList.RoversResult.route){
+            RoversResult()
+        }
     }
+
 }
