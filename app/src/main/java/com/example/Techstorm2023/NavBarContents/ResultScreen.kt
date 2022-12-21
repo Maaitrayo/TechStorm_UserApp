@@ -1,4 +1,4 @@
-package com.example.techstorm223.NavBarContents
+package com.example.Techstorm2023.NavBarContents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,8 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
+
 @Composable
-fun TeamScreen(){
+fun ResultsScreen(){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -22,9 +23,9 @@ fun TeamScreen(){
     ) {
 
         Text(
-            text = "Team Screen",
+            text = "Results Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.White,
+            color = Color.Gray,
             fontSize = 30.sp,
             textAlign = TextAlign.Center
         )

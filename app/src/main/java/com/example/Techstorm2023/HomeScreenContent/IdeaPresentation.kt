@@ -1,4 +1,4 @@
-package com.example.techstorm223.HomeScreenContent
+package com.example.Techstorm2023.HomeScreenContent
 
 import android.content.Intent
 import android.net.Uri

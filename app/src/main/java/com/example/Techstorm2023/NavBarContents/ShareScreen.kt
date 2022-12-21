@@ -1,4 +1,4 @@
-package com.example.techstorm223.NavBarContents
+package com.example.Techstorm2023.NavBarContents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

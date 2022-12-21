@@ -1,12 +1,9 @@
-package com.example.techstorm223.HomeScreenContent
+package com.example.Techstorm2023.HomeScreenContent
 
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -24,9 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.techstorm223.R
-import com.example.techstorm223.RoversNavigation
-import com.example.techstorm223.ui.theme.Purple700
+import com.example.Techstorm2023.RoversNavigation
 
 @Composable
 fun RoCombat(navController: NavHostController){

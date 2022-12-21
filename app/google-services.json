@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "151448189679",
+    "project_id": "techstorm-2023-48aa8",
+    "storage_bucket": "techstorm-2023-48aa8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151448189679:android:bd7d1fa846d03631a4b91a",
+        "android_client_info": {
+          "package_name": "com.example.Techstorm2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151448189679-j58sb0vd8ef3iei6ul6ltrq2p76fai78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8JLoqEChryF-yUk7znIx6HaRJxibBWPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151448189679-j58sb0vd8ef3iei6ul6ltrq2p76fai78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.techstorm223"
+        applicationId "com.example.Techstorm2023"
         minSdk 29
         targetSdk 32
         versionCode 1
@@ -62,5 +62,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha09")
     implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+
 
 }

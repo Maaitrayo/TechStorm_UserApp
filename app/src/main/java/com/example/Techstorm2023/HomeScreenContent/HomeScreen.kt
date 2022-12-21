@@ -1,10 +1,7 @@
-package com.example.techstorm223.HomeScreenContent
+package com.example.Techstorm2023.HomeScreenContent
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -17,9 +14,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.techstorm223.NavigationHomeItems
-import com.example.techstorm223.NavigationItem
-import com.example.techstorm223.R
+import com.example.Techstorm2023.NavigationHomeItems
+import com.example.Techstorm2023.R
 
 data class homedataobject(
     val imgUri: Int,

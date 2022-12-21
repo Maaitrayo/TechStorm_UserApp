@@ -1,6 +1,6 @@
-package com.example.techstorm223
-import com.example.techstorm223.NavBarContents.*
-import com.example.techstorm223.HomeScreenContent.*
+package com.example.Techstorm2023
+import com.example.Techstorm2023.NavBarContents.*
+import com.example.Techstorm2023.HomeScreenContent.*
 //import com.example.techstorm223.ResultScreenContents.*
 
 import android.content.Context
@@ -45,6 +45,7 @@ import androidx.compose.material.Text
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.items
+import com.example.techstorm223.R
 
 
 class MainActivity : ComponentActivity() {

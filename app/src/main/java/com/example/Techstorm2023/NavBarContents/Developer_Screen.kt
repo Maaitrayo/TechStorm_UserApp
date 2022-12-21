@@ -1,4 +1,4 @@
-package com.example.techstorm223.NavBarContents
+package com.example.Techstorm2023.NavBarContents
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -16,8 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.techstorm223.R
-import com.example.techstorm223.getJsonDataFromAsset
+import com.example.Techstorm2023.getJsonDataFromAsset
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

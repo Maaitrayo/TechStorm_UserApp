@@ -1,4 +1,4 @@
-package com.example.techstorm223.ui.theme
+package com.example.Techstorm2023.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
