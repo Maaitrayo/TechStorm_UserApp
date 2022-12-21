@@ -1,6 +1,9 @@
-package com.example.techstorm223.HomeScreenContent
+package com.example.techstorm223.ResultScreenContents
 
-import androidx.compose.foundation.*
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -17,11 +20,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.techstorm223.NavigationHomeItems
-import com.example.techstorm223.NavigationItem
 import com.example.techstorm223.R
 
-data class homedataobject(
+data class resultobject(
     val imgUri: Int,
     val route : String,
     val text : String
@@ -29,30 +30,26 @@ data class homedataobject(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(navController: NavHostController) {
-    val homedata = listOf(
-        homedataobject(R.drawable.image_1, NavigationHomeItems.BrainTeasersList.route, "Brain Teasers"),
-        homedataobject(R.drawable.image_2, NavigationHomeItems.IdeaPresentation.route, "Idea Presentation"),
-        homedataobject(R.drawable.image_3, NavigationHomeItems.Rovers_List.route, "Rovers"),
-        homedataobject(R.drawable.image_4, NavigationHomeItems.GamesList.route, "Games"),
-        homedataobject(R.drawable.image_5, NavigationHomeItems.CreativeList.route, "Creative"),
+fun ResultScreen(navController: NavHostController) {
+    val resultdata = listOf(
+        resultobject(R.drawable.image_1, ResultList.BrainTeasersResult.route, "Brain Teasers Result"),
+        resultobject(R.drawable.image_2, ResultList.IdeaPresentationResult.route, "Idea Presentation Result"),
+        resultobject(R.drawable.image_3, ResultList.RoversResult.route, "Rovers Result"),
+        resultobject(R.drawable.image_4, ResultList.GamesResult.route, "Games Result"),
+        resultobject(R.drawable.image_5, ResultList.CreativeResult.route, "Creative Result")
     )
 
-    val scrallablestate = rememberScrollState()
-
-
-    Column(modifier = Modifier.verticalScroll(scrallablestate).fillMaxWidth()) {
-        for(data in homedata) {
-            HomeItem(data,navController)
+    LazyVerticalGrid(cells = GridCells.Fixed(1)) {
+        items(resultdata) { data ->
+            ResultItem(data,navController)
         }
     }
 }
 
 @Composable
-fun HomeItem(data : homedataobject,navController: NavHostController) {
+fun ResultItem(data : resultobject, navController: NavHostController) {
     Card(
         modifier = Modifier.padding(10.dp,10.dp,10.dp,10.dp)
-            .fillMaxWidth()
             .fillMaxSize(0.7f)
             .background(Color.Black)
             .clip(RoundedCornerShape(30.dp)),
