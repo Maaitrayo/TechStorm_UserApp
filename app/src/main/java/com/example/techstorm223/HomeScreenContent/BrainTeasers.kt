@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
@@ -151,11 +153,10 @@ fun BrainTeasersList(navController: NavHostController) {
         homedataobject(R.drawable.image_4, BrainTeasersNavigation.Technomania.route, "TECHNOMANIA"),
 
         )
-    LazyVerticalGrid(cells = GridCells.Fixed(1)) {
-
-        items(homedata) { data ->
+    val scrallablestate = rememberScrollState()
+    Column(modifier = Modifier.verticalScroll(scrallablestate)) {
+        for (data in homedata) {
             HomeItem(data, navController)
-
         }
     }
 }
