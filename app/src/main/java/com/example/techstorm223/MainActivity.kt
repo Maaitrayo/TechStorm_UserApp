@@ -1,7 +1,7 @@
 package com.example.techstorm223
 import com.example.techstorm223.NavBarContents.*
 import com.example.techstorm223.HomeScreenContent.*
-import com.example.techstorm223.ResultScreenContents.*
+//import com.example.techstorm223.ResultScreenContents.*
 
 import android.content.Context
 
@@ -103,7 +103,7 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
     val items = listOf(
         NavigationItem.Home,
         NavigationItem.Schedule,
-        NavigationItem.ResultScreen,
+        NavigationItem.ResultsScreen,
         NavigationItem.Sponcers,
         NavigationItem.Team,
         NavigationItem.Developers,
@@ -519,8 +519,8 @@ fun Navigation(navController: NavHostController){
             SponcersScreen()
         }
         //Result
-        composable(NavigationItem.ResultScreen.route){
-            ResultScreen(navController)
+        composable(NavigationItem.ResultsScreen.route){
+            ResultsScreen()
         }
         composable(NavigationItem.Announcement.route){
             AnnouncementScreen()
@@ -532,25 +532,7 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Aboutus.route){
             AboutusScreen()
         }
-        composable(ResultList.BrainTeasersResult.route){
-            BrainTeasersResult()
-        }
 
-        composable(ResultList.IdeaPresentationResult.route){
-            IdeaPresentationResult()
-        }
-
-        composable(ResultList.GamesResult.route){
-            GamesResult()
-        }
-
-        composable(ResultList.CreativeResult.route){
-            CreativeResult()
-        }
-
-        composable(ResultList.RoversResult.route){
-            RoversResult()
-        }
     }
 
 }
