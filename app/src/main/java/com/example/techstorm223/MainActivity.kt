@@ -1,6 +1,8 @@
 package com.example.techstorm223
 import com.example.techstorm223.NavBarContents.*
 import com.example.techstorm223.HomeScreenContent.*
+import com.example.techstorm223.ResultScreenContents.*
+
 import android.content.Context
 
 import android.os.Bundle
@@ -101,12 +103,13 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
     val items = listOf(
         NavigationItem.Home,
         NavigationItem.Schedule,
-        NavigationItem.Results,
+        NavigationItem.ResultScreen,
         NavigationItem.Sponcers,
         NavigationItem.Team,
         NavigationItem.Developers,
         NavigationItem.Aboutus,
-        NavigationItem.PhotoGallery
+        NavigationItem.PhotoGallery,
+        NavigationItem.Announcement
     )
 
     Column(
@@ -262,6 +265,24 @@ fun ContactScreen(){
 
         Text(
             text = "Contact Screen",
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            fontSize = 30.sp,
+            textAlign = TextAlign.Center
+        )
+
+    }
+}@Composable
+fun AnnouncementScreen(){
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            text = "Announcement Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             fontSize = 30.sp,
@@ -483,6 +504,7 @@ fun Navigation(navController: NavHostController){
         }
 
 
+
         composable(NavigationItem.Share.route){
             ShareScreen()
         }
@@ -496,8 +518,12 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Sponcers.route){
             SponcersScreen()
         }
-        composable(NavigationItem.Results.route){
-            ResultsScreen()
+        //Result
+        composable(NavigationItem.ResultScreen.route){
+            ResultScreen(navController)
+        }
+        composable(NavigationItem.Announcement.route){
+            AnnouncementScreen()
         }
 
         composable(NavigationItem.Developers.route){
@@ -506,7 +532,25 @@ fun Navigation(navController: NavHostController){
         composable(NavigationItem.Aboutus.route){
             AboutusScreen()
         }
+        composable(ResultList.BrainTeasersResult.route){
+            BrainTeasersResult()
+        }
 
+        composable(ResultList.IdeaPresentationResult.route){
+            IdeaPresentationResult()
+        }
+
+        composable(ResultList.GamesResult.route){
+            GamesResult()
+        }
+
+        composable(ResultList.CreativeResult.route){
+            CreativeResult()
+        }
+
+        composable(ResultList.RoversResult.route){
+            RoversResult()
+        }
     }
 
 }
