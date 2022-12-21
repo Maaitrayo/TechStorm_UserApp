@@ -1,4 +1,4 @@
-package com.example.techstorm223
+package com.example.Techstorm2023
 
 sealed class NavigationHomeItems(var route: String, var icon: Int, var title: String) {
     object BrainTeasersList : NavigationHomeItems("brainTeasersList List2", R.drawable.ic_new, "BrainTeasersList")

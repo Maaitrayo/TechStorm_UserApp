@@ -1,4 +1,4 @@
-package com.example.techstorm223
+package com.example.Techstorm2023
 
 sealed class GamesNavigattion(var route: String, var icon: Int, var title: String) {
     object Coc : GamesNavigattion("coc", R.drawable.ic_new, "Coc")

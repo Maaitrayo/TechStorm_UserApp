@@ -1,4 +1,4 @@
-package com.example.techstorm223.NavBarContents
+package com.example.Techstorm2023.NavBarContents
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.techstorm223.R
+import com.example.Techstorm2023.R
 
 data  class SponcersData(
     val imgUri:Int

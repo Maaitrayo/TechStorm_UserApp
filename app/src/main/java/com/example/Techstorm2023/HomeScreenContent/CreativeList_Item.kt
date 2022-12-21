@@ -1,14 +1,9 @@
-package com.example.techstorm223.HomeScreenContent
+package com.example.Techstorm2023.HomeScreenContent
+
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -26,12 +21,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.techstorm223.BrainTeasersNavigation
-import com.example.techstorm223.R
+import com.example.Techstorm2023.NavigationHomeItems
 
 
 @Composable
-fun Appmania(navController: NavHostController){
+fun Exposcience(navController: NavHostController){
+
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -40,36 +35,7 @@ fun Appmania(navController: NavHostController){
     ) {
 
         Text(
-            text = "Appmania",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            fontSize = 30.sp,
-            textAlign = TextAlign.Center
-        )
-        val context = LocalContext.current
-        val webIntent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/"))
-
-        OutlinedButton(onClick = { context.startActivity(webIntent) }, modifier = Modifier.padding(8.dp).clip(RoundedCornerShape(30.dp)),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)) {
-            Text( text = "Register",
-                fontSize = 30.sp
-            )
-        }
-
-    }
-
-}
-@Composable
-fun Fantac(navController: NavHostController){
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text(
-            text = "Fantac",
+            text = "Exposcience",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             fontSize = 30.sp,
@@ -87,7 +53,7 @@ fun Fantac(navController: NavHostController){
     }
 }
 @Composable
-fun Omegatrix(navController: NavHostController){
+fun MmLive(navController: NavHostController){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -96,7 +62,7 @@ fun Omegatrix(navController: NavHostController){
     ) {
 
         Text(
-            text = "Omegatrix",
+            text = "35mm Live",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             fontSize = 30.sp,
@@ -114,7 +80,7 @@ fun Omegatrix(navController: NavHostController){
     }
 }
 @Composable
-fun Technomania(navController: NavHostController){
+fun PassionWithReels(navController: NavHostController){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -123,7 +89,7 @@ fun Technomania(navController: NavHostController){
     ) {
 
         Text(
-            text = "Technomania",
+            text = "Passion With Reels",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             fontSize = 30.sp,
@@ -132,7 +98,9 @@ fun Technomania(navController: NavHostController){
         val context = LocalContext.current
         val webIntent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/"))
 
-        OutlinedButton(onClick = { context.startActivity(webIntent) }, modifier = Modifier.padding(8.dp).clip(RoundedCornerShape(30.dp)),
+        OutlinedButton(onClick = { context.startActivity(webIntent) }, modifier = Modifier.padding(8.dp).clip(
+            RoundedCornerShape(30.dp)
+        ),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)) {
             Text( text = "Register",
                 fontSize = 30.sp
@@ -140,21 +108,17 @@ fun Technomania(navController: NavHostController){
         }
     }
 }
-
-
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BrainTeasersList(navController: NavHostController) {
+fun CreativeList(navController: NavHostController){
     val homedata = listOf(
-        homedataobject(R.drawable.image_1, BrainTeasersNavigation.Appmania.route, "APP MANIA"),
-        homedataobject(R.drawable.image_2, BrainTeasersNavigation.Fantac.route, "FANTA-C"),
-        homedataobject(R.drawable.image_3, BrainTeasersNavigation.Omegatrix.route, "OMEGATRIX"),
-        homedataobject(R.drawable.image_4, BrainTeasersNavigation.Technomania.route, "TECHNOMANIA"),
-
-        )
+        homedataobject(R.drawable.image_1, NavigationHomeItems.Exposcience.route, "EXPOSCIENCE"),
+        homedataobject(R.drawable.image_2, NavigationHomeItems.MmLive.route, "35MM LIVE"),
+        homedataobject(R.drawable.image_3, NavigationHomeItems.PassionWithReels.route, "PASSION WITH REELS"),
+    )
     val scrallablestate = rememberScrollState()
-    Column(modifier = Modifier.verticalScroll(scrallablestate)) {
+    Column(modifier = Modifier.verticalScroll(scrallablestate).fillMaxWidth()) {
         for (data in homedata) {
             HomeItem(data, navController)
         }
