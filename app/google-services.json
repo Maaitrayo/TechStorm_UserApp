@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "151448189679",
-    "project_id": "techstorm-2023-48aa8",
-    "storage_bucket": "techstorm-2023-48aa8.appspot.com"
+    "project_number": "791473491683",
+    "project_id": "techstorm2023",
+    "storage_bucket": "techstorm2023.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:151448189679:android:bd7d1fa846d03631a4b91a",
+        "mobilesdk_app_id": "1:791473491683:android:b4d7bea02257d74553ffd6",
         "android_client_info": {
-          "package_name": "com.example.Techstorm2023"
+          "package_name": "com.example.techstorm_2023"
         }
       },
       "oauth_client": [
         {
-          "client_id": "151448189679-j58sb0vd8ef3iei6ul6ltrq2p76fai78.apps.googleusercontent.com",
+          "client_id": "791473491683-q137mhrbuebmskv1cjoenjbl8fk60okc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.techstorm_2023",
+            "certificate_hash": "3de448ab218d92b3edcbd09f96712ac13a74febd"
+          }
+        },
+        {
+          "client_id": "791473491683-8rcl6c4brlant3lvncvsdia5v4a4rs6o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC8JLoqEChryF-yUk7znIx6HaRJxibBWPU"
+          "current_key": "AIzaSyBXb8pTyfGiLmpeHEKoQA6Hf8i8EGELIrA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "151448189679-j58sb0vd8ef3iei6ul6ltrq2p76fai78.apps.googleusercontent.com",
+              "client_id": "791473491683-8rcl6c4brlant3lvncvsdia5v4a4rs6o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
